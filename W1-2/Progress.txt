@@ -1,0 +1,4 @@
+[0322]
+FILE 구조체, File descriptors?
+라이브러리함수 확인
+ROpen / RFile ?? --> <recio.h> 확인
