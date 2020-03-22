@@ -1,0 +1,20 @@
+actions
+C - IO completed
+D - issued to driver
+I - inserted to request
+Q - handled by queue code
+B - bounced
+M - back merged with request
+F - front merged with request
+G - get request
+S - sleep request
+P - plug request
+U - unplug request
+T - unplug because of timeout
+X - split
+A - remapped to a different device
+
+Read
+Write
+Barrier operations
+Synchronous operations
