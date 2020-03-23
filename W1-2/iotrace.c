@@ -1,23 +1,29 @@
 #include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 int main(void)
 {
-  FILE* file = NULL;
-
-  int lbaValue = 0;
-  int size = 0;
+  int fileNum = 0;
+  ssize_t nread = 0;
+  char buf[1024];
 
   /*
+  int lbaValue = 0;
+  int size = 0;
   printf("start LBA : ");
   scanf("%d", &lbaValue);
   printf("size : ");
   scanf("%d", &size);
   */
 
-  file = fopen("Progress.txt", "r");
+  //file = fopen("Progress.txt", "r");
+  fileNum = open("Progress.txt", O_RDONLY);
+  nread = read(fileNum, buf, 1024);
 
-  printf("%d \n", fileno(file));
+  //printf("%d \n", fileno(rFile));
+  printf("%d %d\n", fileNum, nread);
 
-  fclose(file);
+  close(fileNum);
   return 0;
 }

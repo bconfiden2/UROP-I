@@ -2,3 +2,11 @@
 FILE 구조체, File descriptors?
 라이브러리함수 확인
 ROpen / RFile ?? --> <recio.h> 확인
+
+[0323]
+recio.h / RFILE 구조체 등등 -> IBM system i와 관련한 라이브러리 인 듯, 잘못찾은 것 같다
+read 호출 -> sys_read 호출 -> vfs_read 호출 -> 각 파일시스템 별 함수 호출
+타겟디바이스 설정은 어떻게?
+등록한 디바이스 번호와 구조체(file operations - linux/fs.h)
+구조체에 함수포인터를 넣는다???
+/dev/sda 에서 뭘 열어.. 리눅스 모듈 알아보기
