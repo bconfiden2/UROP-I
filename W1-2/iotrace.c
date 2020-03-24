@@ -4,33 +4,52 @@
 #include <sys/ioctl.h>
 #include <stdlib.h>
 
+#define SECTOR_SIZE 512
+
 int main(void)
 {
-  int sdaFD = 0;
-  ssize_t nread = 0;
-  char buf[1024];
+  FILE* file = NULL;
+  long int devStartLBA = 0;
+  long int devEndLBA = 0;
+  long int devCurLBA = 0;
+  char* buf = NULL;
+  int i = 0;
+  //사용자 입력부분
+  long int startLBA = 0;
+  int size = 0;
+
+  //
+  file = fopen("/dev/sda", "r");
+  fseek(file, 0 , SEEK_SET);
+  devStartLBA = ftell(file) / SECTOR_SIZE;
+  fseek(file, 0, SEEK_END);
+  devEndLBA = ftell(file) / SECTOR_SIZE;
+
+  printf("/dev/sda : %ld ~ %ld\n", devStartLBA, devEndLBA);
+
 
   //입력
-  int startLBA = 0;
-  int size = 0;
   printf("start LBA : ");
-  scanf("%d", &startLBA);
+  scanf("%ld", &startLBA);
   printf("size : ");
   scanf("%d", &size);
 
 
-
   //처리
-
-  sdaFD = open("/dev/sda", O_RDONLY); // 파일의 fd 번호, sda를 읽기전용으로 열었
-  //nread = read(fileNum, buf, 1024); // 파일의 바이트
-
+  buf = (char*)malloc(sizeof(char) * size); // 내용 저장해줄 공간 생성
+  fseek(file, startLBA, SEEK_SET); // 입력한 lba 만큼 이동
+  devCurLBA = ftell(file);
+  fread(buf, 1, size, file); // 현재 포인터부터 32바이트를 한바이트씩 읽어 buf에 저장
 
 
   //출력
-  printf("FD : %d\n", sdaFD);
+  for(i = 0 ; i < size ; i++)
+  {
+    printf("%c / ", buf[i]);
+  }
+  printf("\n");
 
 
-  close(sdaFD);
+  fclose(file);
   return 0;
 }
