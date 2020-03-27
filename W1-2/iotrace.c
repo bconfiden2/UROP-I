@@ -8,35 +8,31 @@
 
 int main(void)
 {
-  int fd = 0;
+  //int fd = 0;
   FILE* file = NULL;
-  long int devStartLBA = 0;
-  long int devEndLBA = 0;
-  long int devCurLBA = 0;
+  //long int devStartLBA = 0;
+  //long int devEndLBA = 0;
+  //long int devCurLBA = 0;
   char* buf = NULL;
-  int i = 0;
+  //int i = 0;
 
   long int startLBA = 0;
   int size = 0;
 
   //fd = open("/dev/sda", O_RDONLY);
 
-
-
   file = fopen("/dev/sda", "r");
 
-  fseek(file, 0 , SEEK_SET);
-  devStartLBA = ftell(file) / SECTOR_SIZE;
-  fseek(file, 0, SEEK_END);
-  devEndLBA = ftell(file) / SECTOR_SIZE;
-  printf("/dev/sda : %ld ~ %ld\n", devStartLBA, devEndLBA);
+  //fseek(file, 0 , SEEK_SET);
+  //devStartLBA = ftell(file) / SECTOR_SIZE;
+  //fseek(file, 0, SEEK_END);
+  //devEndLBA = ftell(file) / SECTOR_SIZE;
+  //printf("/dev/sda : %ld ~ %ld\n", devStartLBA, devEndLBA);
 
   //printf("start LBA : ");
-  startLBA = 2048;
   //scanf("%ld", &startLBA);
   //printf("size : ");
   //scanf("%d", &size);
-  size = 8;
 
   startLBA = 2048;
   size = 8;
@@ -48,7 +44,7 @@ int main(void)
   free(buf);
 
   fclose(file);
-  
+
 
   return 0;
 }
