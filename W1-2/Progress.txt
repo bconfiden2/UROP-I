@@ -26,3 +26,10 @@ read의 성능향상을 위한 page cache, readahead logic
 os에서 캐시메모리에 저장해놓음 - io발생시 캐시메모리 확인 - 있으면 가져다쓰고 없을때 실제 읽기 요청
 디스크에 접근안하고 아니라 메모리에서 읽어오는중이었나봄!
 os 버퍼를 넘어가 디스크 직접 접근 O_DIRECT
+
+[0402]
+O_DIRECT 는 fopen 아니라 open인데? read에서 startLBA 는? 버퍼의 크기?
+fseek -> lseek
+buffer alignment -> 버퍼의 크기를 정해주는거같다?
+O_DIRECT 는 블럭으로부터 직접 읽어오기 때문에 512 배수로 align
+O_DIRECT 는 os버퍼를 거치지 않기 때문에 버퍼를 얼라인해주지  않으면 수동으로 버퍼의 위치를 맞춰줘야 된다??는 것 같다
