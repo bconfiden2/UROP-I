@@ -24,7 +24,7 @@ int main(void)
     startLBA = 11111 * (i+1);
     size = 8;
     buf[i] = (char*)malloc(sizeof(char) * size * SECTOR_SIZE);
-    pos[i] = posix_memalign((void**)&buf, SECTOR_SIZE, SECTOR_SIZE * size);
+    pos[i] = posix_memalign((void**)&buf[i], SECTOR_SIZE, SECTOR_SIZE * size);
 
     lseek(fd, startLBA * SECTOR_SIZE, SEEK_SET);
     read(fd, buf[i], size * SECTOR_SIZE);
