@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/ioctl.h>
 #include <stdlib.h>
 
 #define SECTOR_SIZE 512
@@ -17,19 +16,12 @@ int main(void)
   long int startLBA = 0;
   int size = 0;
 
-  fd = open("/dev/sda", O_DIRECT | O_RDONLY);
-  fcntl(fd, F_GETFL, O_NONBLOCK);
-  //printf("start LBA : ");
-  //scanf("%ld", &startLBA);
-  //printf("size : ");
-  //scanf("%d", &size);
-
-  startLBA = 2048;
-  size = 8;
+  fd = open("/dev/sda", O_DIRECT | O_RDONLY | O_NONBLOCK);
+  //fcntl(fd, F_GETFL, O_NONBLOCK);
 
   for(i = 0 ; i < 10 ; i++)
   {
-    startLBA = 2048 * i;
+    startLBA = 11111 * (i+1);
     size = 8;
     buf[i] = (char*)malloc(sizeof(char) * size * SECTOR_SIZE);
     pos[i] = posix_memalign((void**)&buf, SECTOR_SIZE, SECTOR_SIZE * size);
