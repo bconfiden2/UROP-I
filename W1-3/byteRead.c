@@ -16,10 +16,11 @@ int main(void)
 
   fd = open("TestFile.txt", O_RDONLY | O_DIRECT);
   //buf = (char*)malloc(sizeof(char));
-  posix_memalign((void**)&buf, SECTOR_SIZE, 1);
+  buf = (char*)malloc(sizeof(char) * SECTOR_SIZE);
+  posix_memalign((void**)&buf, SECTOR_SIZE, SECTOR_SIZE);
   fileSize = lseek(fd, 0, SEEK_END);
   lseek(fd, 0 , SEEK_SET);
-
+  
   while(curSeek < fileSize)
   {
     prevSeek = lseek(fd, 0 ,SEEK_CUR);
@@ -28,5 +29,8 @@ int main(void)
     printf("byte offset %d ~ %d -> LBA ??? ~ ???\n", prevSeek, curSeek);
   }
 
+  printf("%d\n", (int)lseek(fd, 0, SEEK_END));
+
   free(buf);
+  close(fd);
 }
