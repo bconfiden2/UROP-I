@@ -20,16 +20,19 @@ int main(void)
   posix_memalign((void**)&buf, SECTOR_SIZE, SECTOR_SIZE);
   fileSize = lseek(fd, 0, SEEK_END);
   lseek(fd, 0 , SEEK_SET);
-  
+
   while(curSeek < fileSize)
   {
-    prevSeek = lseek(fd, 0 ,SEEK_CUR);
-    read(fd, buf, 1);
-    curSeek = lseek(fd, SECTOR_SIZE, SEEK_CUR) - 1;
-    printf("byte offset %d ~ %d -> LBA ??? ~ ???\n", prevSeek, curSeek);
+    prevSeek = lseek(fd, curSeek ,SEEK_SET);
+    read(fd, buf, SECTOR_SIZE);
+    curSeek = lseek(fd, prevSeek + SECTOR_SIZE, SEEK_SET);
+    if(curSeek >= fileSize)
+    {
+      curSeek = fileSize;
+      curSeek++;
+    }
+    //printf("byte offset %d ~ %d -> LBA ??? ~ ???\n", prevSeek, curSeek - 1);
   }
-
-  printf("%d\n", (int)lseek(fd, 0, SEEK_END));
 
   free(buf);
   close(fd);
