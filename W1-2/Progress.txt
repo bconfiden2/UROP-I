@@ -39,3 +39,7 @@ O_DIRECT 는 os버퍼를 거치지 않기 때문에 버퍼를 얼라인해주지
 O_NONBLOCK 설정해줘도 안되는것같은데 어디서 문제가 발생??
 시스템의 qd 에 대한 설정이 따로 또 필요? sda의 queue depth 는 32로 설정되어있긴한데..
 read() 자체가 blocking call임. non blocking인 읽기 시스템 함수를 찾아볼것 -> select/poll -> 과제3번 먼저하고 다시하자
+
+[0426]
+select/poll timeout세팅
+async read 방법 readFileSync? + promise? -> nodeJS
