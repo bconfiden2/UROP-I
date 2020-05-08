@@ -43,3 +43,5 @@ read() 자체가 blocking call임. non blocking인 읽기 시스템 함수를 �
 [0426]
 select/poll timeout세팅
 async read 방법 readFileSync? + promise? -> nodeJS
+
+[0508]

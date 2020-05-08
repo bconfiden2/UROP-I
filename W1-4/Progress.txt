@@ -1,0 +1,6 @@
+[0508]
+system call hooking 실습
+시스템 콜 리스트 - include/asm/unist.h
+__NR_read 에 위치한 함수 포인터 대신 내가 만든 걸 등록해준다?
+sys call table 변경
+커널 모듈로 빌드해서 올려야 한다..?
