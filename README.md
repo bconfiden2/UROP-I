@@ -1,5 +1,7 @@
 # UROP_I
+
 [과제 3]
+
 txtReader 는 txt.txt 파일을 O_DIRECT 로 read 하는 프로그램 입니다.
 blktrace 로 /dev/sda 를 읽게 한 후 txtReader 를 실행시켜 txt.txt 파일을 트레이싱 한 후
 blkparse 결과물을 blkOutput.txt 에 저장합니다.
