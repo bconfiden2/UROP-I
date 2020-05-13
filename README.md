@@ -11,7 +11,9 @@ sudo blktrace /dev/sda -a complete -a issue -o - | sudo blkparse -f "%M %m %d %a
 ![btt](https://user-images.githubusercontent.com/58922834/81796034-d828f180-9547-11ea-9236-1663bb8bb798.png)
 
 
+
 seekwatcher 은 blktrace 의 결과를 그림으로 보여주는 툴입니다.
+
 시간을 기준으로 논리주소, 처리량, 탐색 횟수, IO 를 보여줍니다.
 아래는 seekwatcher 실행 결과입니다. ![trace](https://user-images.githubusercontent.com/58922834/81796038-d95a1e80-9547-11ea-86a2-9e6b0ad8a675.png)
 [과제 2]
@@ -21,6 +23,8 @@ iotrace.c 는 LBA 와 size 를 입력받아 /dev/sda 에 read 를 발생시키�
 아래는 2048 에서 8 만큼 read 하게 실행한 사진입니다.
 
 ![capture](https://user-images.githubusercontent.com/58922834/81796031-d65f2e00-9547-11ea-87d0-14aa52165f11.png)
+
+
 
 
 [과제 3]
