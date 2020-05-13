@@ -1,5 +1,22 @@
 # UROP_I
 
+[과제 1]
+
+sudo blktrace /dev/sda -a complete -a issue -o - | sudo blkparse -f "%M %m %d %a %S %n\n" -i -
+
+
+아래는 btt 실행 결과입니다.
+
+
+아래는 seekwatcher 실행 결과입니다.
+
+
+[과제 2]
+
+iotrace.c 는 LBA 와 size 를 입력받아 /dev/sda 에 read 를 발생시키는 프로그램 입니다.
+아래는 2048 에서 8 만큼 read 하게 실행한 사진입니다.
+
+
 [과제 3]
 
 txtReader 는 txt.txt 파일을 O_DIRECT 로 read 하는 프로그램 입니다.
