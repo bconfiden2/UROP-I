@@ -58,4 +58,4 @@ module_init( hk_init );
 // 초기화 함수 실행
 module_exit( hk_exit );
 
-MODULE_LICENSE(*GPL*);
+//MODULE_LICENSE(*GPL*);
