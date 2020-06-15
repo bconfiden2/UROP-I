@@ -18,3 +18,6 @@ linux source 헤더파일 설치
 linux/modulesparam -> linux/init 어디??
 linux-headers
 커널 모듈 컴파일 방법 알아보기
+
+[0611]
+커널 컴파일 환경 구축....컴파일까지 해야하는것인가
